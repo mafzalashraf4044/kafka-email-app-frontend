@@ -5,17 +5,19 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar bg="dark" data-bs-theme="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Email App</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home">
+          Email App
+        </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse role="navigation">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">
-              <Link to="/">Home</Link>
+          <Nav className="ml-auto">
+            <Nav.Link as={Link} to="/home">
+              Home
             </Nav.Link>
-            <Nav.Link href="#home">
-              <Link to="/">About</Link>
+            <Nav.Link as={Link} to="/about">
+              About
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
