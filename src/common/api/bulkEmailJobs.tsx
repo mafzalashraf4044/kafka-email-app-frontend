@@ -44,3 +44,23 @@ export const getBulkEmailJobRequest = async (currentPage = 1) => {
 
   return result;
 };
+
+export const getSentEmailsCountRequest = async () => {
+  const response = await fetch(
+    `${API_BASE_URL}/bulk-email-job/sent-emails-count`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result.message);
+  }
+
+  return result;
+};

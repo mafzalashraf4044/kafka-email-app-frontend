@@ -1,1 +1,1 @@
-export * from "./bulkEmailJob.interfaces";
+export * from "./bulkEmailJob";

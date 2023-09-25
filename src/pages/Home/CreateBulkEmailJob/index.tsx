@@ -15,27 +15,36 @@ export default function CreateBulkEmailJob({
   onSubmit,
   isLoading,
 }: CreateBulkEmailJobProps) {
-  const [numberOfEmails, setNumberOfEmails] = useState<string | number>("");
+  const [numberOfEmails, setNumberOfEmails] = useState<number>(0);
   const { isOpen, onClose, toggleModal } = useModal<ModalStateInterface>();
 
   const handleNumberOfEmailsChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setNumberOfEmails(parseInt(value, 10));
+
+    const x = !value ? 0 : parseInt(value, 10);
+    setNumberOfEmails(x);
+  };
+
+  const handleClose = () => {
+    setNumberOfEmails(0);
+    onClose();
   };
 
   const handleSubmit = () => {
     onSubmit({
       numberOfEmails,
     });
+
+    handleClose();
   };
 
   return (
     <div>
       <Button variant="outline-primary" onClick={toggleModal}>
-        New Email Request
+        New Email Job
       </Button>
 
-      <Modal centered show={isOpen} onHide={onClose}>
+      <Modal centered show={isOpen} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className="font-bold">Send Emails</Modal.Title>
         </Modal.Header>
@@ -55,10 +64,14 @@ export default function CreateBulkEmailJob({
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-danger" onClick={onClose}>
+          <Button variant="outline-danger" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="outline-secondary" onClick={handleSubmit}>
+          <Button
+            variant="outline-secondary"
+            onClick={handleSubmit}
+            disabled={!numberOfEmails}
+          >
             Submit
             {isLoading && (
               <Spinner
