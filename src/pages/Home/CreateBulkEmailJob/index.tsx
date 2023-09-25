@@ -1,29 +1,25 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
 
-import { useModal } from "@hooks";
+import { useModal, ModalStateInterface } from "@hooks";
 
 interface CreateBulkEmailJobProps {
-  isError: boolean;
-  error: any;
   onSubmit: Function;
   isLoading: boolean;
 }
 
 export default function CreateBulkEmailJob({
-  isError,
-  error,
   onSubmit,
   isLoading,
 }: CreateBulkEmailJobProps) {
-  const [numberOfEmails, setNumberOfEmails] = useState<number>();
-  const { isOpen, onClose, toggleModal } = useModal();
+  const [numberOfEmails, setNumberOfEmails] = useState<string | number>("");
+  const { isOpen, onClose, toggleModal } = useModal<ModalStateInterface>();
 
-  const handleNumberOfEmailsChange = (e) => {
-    const { value } = e.target;
+  const handleNumberOfEmailsChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
     setNumberOfEmails(parseInt(value, 10));
   };
 
@@ -41,7 +37,7 @@ export default function CreateBulkEmailJob({
 
       <Modal centered show={isOpen} onHide={onClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Send Emails</Modal.Title>
+          <Modal.Title className="font-bold">Send Emails</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -55,11 +51,6 @@ export default function CreateBulkEmailJob({
                 type="number"
                 placeholder="E.g 10000"
               />
-              {isError && (
-                <Form.Control.Feedback type="invalid">
-                  Something went wrong!
-                </Form.Control.Feedback>
-              )}
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -70,7 +61,12 @@ export default function CreateBulkEmailJob({
           <Button variant="outline-secondary" onClick={handleSubmit}>
             Submit
             {isLoading && (
-              <Spinner animation="border" role="status">
+              <Spinner
+                className="ml-5"
+                animation="border"
+                role="status"
+                size="sm"
+              >
                 <span className="visually-hidden">Loading...</span>
               </Spinner>
             )}

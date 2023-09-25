@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
-export function Header() {
+export default function Header() {
   return (
     <Navbar bg="dark" data-bs-theme="dark" expand="lg">
       <Container>

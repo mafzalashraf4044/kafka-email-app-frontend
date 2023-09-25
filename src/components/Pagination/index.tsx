@@ -1,11 +1,20 @@
 import { useState } from "react";
 import RPagination from "react-bootstrap/Pagination";
 
-export function Pagination({ currentPage, totalPages, onChange }) {
-  const [activePage, setActivePage] = useState(currentPage);
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onChange: (page: number) => void;
+}
 
-  const handlePageChange = (event) => {
-    const page = event.target.value;
+export default function Pagination({
+  currentPage,
+  totalPages,
+  onChange,
+}: PaginationProps) {
+  const [activePage, setActivePage] = useState<number>(currentPage);
+
+  const handlePageChange = (page: number) => {
     setActivePage(page);
     onChange(page);
   };
@@ -16,7 +25,7 @@ export function Pagination({ currentPage, totalPages, onChange }) {
         <RPagination.Item
           key={page}
           active={page === activePage}
-          onClick={handlePageChange}
+          onClick={() => handlePageChange(page)}
           value={page}
         >
           {page}

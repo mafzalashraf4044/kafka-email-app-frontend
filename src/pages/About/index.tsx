@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 
-export function About() {
+export default function About() {
   return (
     <Card className="m-10">
       <Card.Header className="flex flex-row justify-start items-center">
