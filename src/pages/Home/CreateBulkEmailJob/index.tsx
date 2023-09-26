@@ -21,7 +21,7 @@ export default function CreateBulkEmailJob({
   const handleNumberOfEmailsChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
-    const x = !value ? 0 : parseInt(value, 10);
+    const x = !value ? "" : parseInt(value, 10);
     setNumberOfEmails(x);
   };
 

@@ -14,14 +14,10 @@ export default function About() {
           <br />
           <br />
           To send a batch of emails, simply enter the number of emails you want
-          to send in the input box and click the "Send" button. We will then
+          to send in the input box and click the "Submit" button. We will then
           generate a job ID and add the job to the Kafka queue. Our workers will
-          pick up the job from the queue and send the emails.
-          <br />
-          <br />
-          You can view the status of your job in near real time by refreshing
-          the page. The status will show you how many emails have been sent and
-          how many emails are remaining.
+          pick up the job from the queue and send the emails. You can view the
+          status of your job in near real time by refreshing the page.
           <br />
           <br />
           You can also close the browser and come back later to check the status
