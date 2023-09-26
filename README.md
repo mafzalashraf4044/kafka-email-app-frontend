@@ -29,10 +29,10 @@ Follow these steps to set up and run the applicatioClone the repository from Git
 
 This frontend application is part of a larger system that includes the following services:
 
-1.**Frontend**: React-based user interface (This repository)
-2.**Backend**: Nest.js backend responsible for handling email jobs
-3.**Queue**: Kafka for managing email sending jobs
-4.**Database**: MySQL for storing relevant data
+1. **Frontend**: React-based user interface (This repository)
+2. **Backend**: Nest.js backend responsible for handling email jobs
+3. **Queue**: Kafka for managing email sending jobs
+4. **Database**: MySQL for storing relevant data
 
 ## Usage
 
@@ -60,4 +60,4 @@ This user-friendly guide outlines the fundamental steps and features of the appl
 
 ## [Contributing](https://github.com/mafzalashraf4044/kafka-email-app-backend#contributing)
 
-If you would like to contribute to this project or report issues, please visit the GitHub repository at [https://github.com/mafzalashraf4044/kafka-email-app-](https://github.com/yourusername/email-sending-app)frontend.
+If you would like to contribute to this project or report issues, please visit the GitHub repository at [https://github.com/mafzalashraf4044/kafka-email-app-frontend](https://github.com/yourusername/email-sending-app).
